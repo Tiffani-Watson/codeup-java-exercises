@@ -19,14 +19,20 @@ public class Person {
 
     public static void main(String[] args) {
         // Create a new Person object
-        Person person = new Person("John Doe");
+//        Person person = new Person("John Doe");
 
         // Test the methods
-        System.out.println("Initial name: " + person.getName());
+//        System.out.println("Initial name: " + person.getName());
 
-        person.setName("Jane Smith");
-        System.out.println("New name: " + person.getName());
+//        person.setName("Jane Smith");
+//        System.out.println("New name: " + person.getName());
+//
+//        person.sayHello();
+//
+        Person person1 = new Person("John");
+        Person person2 = new Person("John");
+        System.out.println(person1.getName().equals(person2.getName()));
+        System.out.println(person1 == person2);
 
-        person.sayHello();
     }
 }
