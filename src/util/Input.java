@@ -3,8 +3,6 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-
-
     private Scanner scanner;
 
     public Input() {
@@ -12,81 +10,82 @@ public class Input {
     }
 
     public String getString() {
-        System.out.println("Type a String...");
         return this.scanner.nextLine();
     }
 
     public boolean yesNo() {
-        System.out.println("Yes or No?");
-
-        String userInput = this.scanner.nextLine();
-
-        userInput = userInput.toLowerCase();
-
-        switch (userInput) {
-            case "no":
-            case "n":
-            case "nope":
-            case "denied":
-            case "uh uh":
-                return false;
-            case "yes":
-            case "y":
-            case "yep":
-            case "sure":
-            case "si":
-            case "uh huh":
-            case "approved":
-                return true;
-            case "maybe":
-                System.out.println("Ain't you cute?");
-                return yesNo();
-            default:
-                System.out.println("Input is unacceptable");
-                return yesNo();
+        System.out.println("Enter Yes/Y or No/N");
+        String yNStr = this.scanner.nextLine();
+        boolean yNBool = false;
+        if (yNStr.equalsIgnoreCase("yes") || yNStr.equalsIgnoreCase("y")) {
+            yNBool = true;
         }
-    }
-
-    public int getInt() {
-        try {
-            String input = getString();
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter an integer.");
-            return getInt();
-        }
+        return yNBool;
     }
 
     public int getInt(int min, int max) {
-        System.out.println("Please enter a number within the range");
-        int userInput = getInt();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Number is out of range.");
-            return getInt(min, max);
-        }
+        int userInt = 0;
+        do {
+            System.out.printf("Enter a number between %d and %d\n", min, max);
+            userInt = getInt();
+        } while (userInt > max || userInt < min);
+
+        return userInt;
     }
 
-    public double getDouble() {
+    public int getInt() {
+        int val = -1;
+        String s = getString();
         try {
-            String input = getString();
-            return Double.parseDouble(input);
+            val = Integer.valueOf(s);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a double.");
-            return getDouble();
+            System.err.println("Input is not a valid integer!\nTry Again!\n" + e);
+            val = getInt();
         }
+        return val;
     }
 
     public double getDouble(double min, double max) {
-        System.out.println("Please enter a number within the range");
-        double userInput = getDouble();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
-        } else {
-            System.out.println("Number is out of range.");
-            return getDouble(min, max);
-        }
+        double userDouble = 0;
+        do {
+            System.out.printf("Enter a number between %f and %f\n", min, max);
+            userDouble = getDouble();
+        } while (userDouble > max || userDouble < min);
+
+        return userDouble;
     }
 
+    public double getDouble() {
+        double val = -1;
+        String s = getString();
+        try {
+            val = Double.valueOf(s);
+        } catch (NumberFormatException e) {
+            System.err.println("Input is not a valid double number!\nTry Again!\n" + e);
+            val = getDouble();
+        }
+        return val;
+    }
+
+    public double getBinary() {
+        double val = -1;
+        String s = getString();
+        try {
+            val = Integer.valueOf(s, 2);
+        } catch (NumberFormatException e) {
+            System.err.println("Nope not a valid Binary Input! Only 0's and 1's can be used.\n" + e);
+        }
+        return val;
+    }
+
+    public double getHex() {
+        double val = -1;
+        String s = getString();
+        try {
+            val = Integer.valueOf(s, 16);
+        } catch (NumberFormatException e) {
+            System.err.println("Nope, not a valid Hexadecimal Input. Only 0-9 and A-F.\n" + e);
+        }
+        return val;
+    }
 }

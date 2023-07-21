@@ -1,4 +1,5 @@
 package shapes;
+
 import util.Input;
 
 public class CircleApp {
@@ -15,11 +16,11 @@ public class CircleApp {
             System.out.printf("The circumference is %.2f\n", newCircle.getCircumference());
             System.out.println("Would you like to create another circle?");
             circlesCreated++;
-        }while (userInput.yesNo());
+        } while (userInput.yesNo());
         displayNumCircles();
     }
 
-    public static void displayNumCircles(){
-        System.out.printf("\n\n%d circles have been created\n",circlesCreated);
+    public static void displayNumCircles() {
+        System.out.printf("\n\n%d circles have been created\n", circlesCreated);
     }
 }
