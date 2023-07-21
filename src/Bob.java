@@ -25,19 +25,19 @@ public class Bob {
             System.out.println("You:");
             userInput = scanner.nextLine();
             getBobsResponse(userInput);
-            if(userInput.equalsIgnoreCase("q") || userInput.equalsIgnoreCase("quit")){
+            if (userInput.equalsIgnoreCase("q") || userInput.equalsIgnoreCase("quit")) {
                 keepGoing = false;
             }
-        } while(keepGoing);
+        } while (keepGoing);
     }
 
-    public static void getBobsResponse(String input){
+    public static void getBobsResponse(String input) {
         String resp = "";
-        if(input.equals("")){
+        if (input.equals("")) {
             resp = "Fine. Be that way!";
-        }else if(input.endsWith("?")){
+        } else if (input.endsWith("?")) {
             resp = "Sure.";
-        } else if(input.endsWith("!")){
+        } else if (input.endsWith("!")) {
             resp = "Whoa, chill out!";
         } else {
             resp = "Whatever.";

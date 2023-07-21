@@ -1,5 +1,5 @@
 public class HelloWorld {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        System.out.println("Hello, World!");
 //
 //        // Create an int variable named myFavoriteNumber and assign your favorite number to it, then print it out to the console.

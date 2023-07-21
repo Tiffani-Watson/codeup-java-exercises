@@ -31,26 +31,26 @@ public class ConsoleExercises {
         int len = parseInt(scanner.nextLine());
         int width = parseInt(scanner.nextLine());
         int height = parseInt(scanner.nextLine());
-        int area = (int)calcArea(len, width);
-        int perimeter = (int)calcPerimeter(len, width);
+        int area = (int) calcArea(len, width);
+        int perimeter = (int) calcPerimeter(len, width);
         System.out.println("area = " + area);
         System.out.println("perimeter = " + perimeter);
 
-        int volume = (int)calcVol(len, width, height);
+        int volume = (int) calcVol(len, width, height);
         System.out.println("volume = " + volume);
 
     }
 
-    public static double calcArea(double l, double w){
-        return l*w;
+    public static double calcArea(double l, double w) {
+        return l * w;
     }
 
-    public static double calcPerimeter(double l, double w){
+    public static double calcPerimeter(double l, double w) {
         return ((l * 2) + (w * 2));
     }
 
-    public static double calcVol(double l, double w, double h){
-        return l*w*h;
+    public static double calcVol(double l, double w, double h) {
+        return l * w * h;
     }
 
 }
